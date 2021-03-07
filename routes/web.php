@@ -24,3 +24,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'LaughsnsController@index');
+Route::get('index', 'LaughsnsController@index2');
+Route::get('create', 'LaughsnsController@create');

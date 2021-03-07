@@ -5,7 +5,7 @@
     <div class="container">
         <hr color="#c0c0c0">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">お笑いSNS</a>
+          <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -16,10 +16,10 @@
                 <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/#">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">マイページ</a>
+                <a class="nav-link" href="#">Link</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">新規投稿</a>
+                <a class="nav-link disabled" href="#">Disabled</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -31,7 +31,7 @@
 
         <hr color="#c0c0c0">
         <div class="card">
-            <img class="card-img-top" src="/images/pathToYourImage.png" alt="">
+            <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title"></h4>
                 <p class="card-text">
@@ -40,8 +40,6 @@
                 <a href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/index" class="btn btn-primary"></a>
             </div>
         </di>
-
-        
     </div>
     </div>
 @endsection
