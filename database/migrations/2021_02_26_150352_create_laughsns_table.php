@@ -13,12 +13,19 @@ class CreateLaughsnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('laughsns', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('entertainer'); 
             $table->string('recommend');  
             $table->string('image_path')->nullable();  
             $table->timestamps();
+            
+             $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

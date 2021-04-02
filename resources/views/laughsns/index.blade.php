@@ -13,35 +13,34 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">マイページ</a>
+                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/index">マイページ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">新規投稿</a>
+                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/create">新規投稿</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="cond_title">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
         </nav>
-
-        <hr color="#c0c0c0">
-        <div class="card">
-            <img class="card-img-top" src="/images/pathToYourImage.png" alt="">
-            <div class="card-body">
-                <h4 class="card-title"></h4>
-                <p class="card-text">
-                    
-                </p>
-                <a href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/index" class="btn btn-primary"></a>
+        <div class="row">
+          @foreach($posts as $post)
+            <div class="col-sm-6">
+              <div class="card">
+                <img src="{{ secure_asset('storage/profile_image/' . $post->image_path) }}">
+                <div class="card-body">
+                  <h4 class="card-title">{{$post->entertainer}}</h4>
+                  <p class="card-text">{{str_limit($post->recommend, 150) }}</p>
+                  <a href="#"></a>
+                </div>
+              </div>  
+          @endforeach
             </div>
-        </di>
-
-        
-    </div>
+        </div>
     </div>
 @endsection

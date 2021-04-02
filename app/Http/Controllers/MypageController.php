@@ -3,37 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\HTML;
 use App\Models\Post;
 
-class LaughsnsController extends Controller
+class MypageController extends Controller
 {
-    public function add()
-    {
-        return view('laughsns.create');
-    }
-    public function create(Request $request)
-    {
-        $this->validate($request, Post::$rules);
-    
-        $posts = new Post;
-        $form = $request->all();
-        
-        if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/profile_image');
-            $posts->image_path = basename($path);
-        } else {
-          $posts->image_path = null;
-        }
-        unset($form['_token']);
-        unset($form['image']);
-        $posts->fill($form);
-        $posts->user_id = $request->user()->id;
-        $posts->save();
-        return redirect('laughsns/create');
-    }
-    
-    public function index(Request $request)
+   public function index(Request $request)
     {
         $cond_title = $request->cond_title;
         if ($cond_title != '') {

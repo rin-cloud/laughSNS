@@ -78,7 +78,6 @@ class LaughsnsController extends Controller
       // 以下を追記　　
     public function delete(Request $request)
         {
-          // 該当するNews Modelを取得
           $laughsns = Laughsns::find($request->id);
           // 削除する
           $laughsns->delete();
