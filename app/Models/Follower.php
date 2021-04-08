@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Follower extends Model
 {
-     protected $primaryKey = [
+    protected $primaryKey = [
         'following_id',
         'followed_id'
     ];
@@ -25,5 +25,10 @@ class Follower extends Model
     public function getFollowerCount($user_id)
     {
         return $this->where('followed_id', $user_id)->count();
+    }
+    
+    public function followingIds(Int $user_id)
+    {
+        return $this->where('following_id', $user_id)->get('followed_id');
     }
 }

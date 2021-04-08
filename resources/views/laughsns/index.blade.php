@@ -13,13 +13,13 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ action('LaughsnsController@index', ['id' => Auth::user()->id])}}">Home <span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/index">マイページ</a>
+                <a class="nav-link" href="{{ action('UsersController@show', ['id' => Auth::user()->id]) }}">マイページ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://3bd9d0cc6665453aaa89c82261c0c97c.vfs.cloud9.us-east-2.amazonaws.com/create">新規投稿</a>
+                <a class="nav-link" href="{{ action('PostController@create', ['id' => Auth::user()->id])}}">新規投稿</a>
               </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -39,8 +39,8 @@
                   <a href="#"></a>
                 </div>
               </div>  
-          @endforeach
             </div>
+          @endforeach  
         </div>
     </div>
 @endsection

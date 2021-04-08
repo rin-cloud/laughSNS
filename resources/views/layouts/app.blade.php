@@ -51,6 +51,9 @@
                                     </li>
                                 @endif
                             @else
+                                <li class="nav-item mr-5">
+                                    <a href="{{ url('posts/create') }}" class="btn btn-md btn-primary">投稿する</a>
+                                </li>
                                 <li class="nav-item">
                                     <img src="{{ auth()->user()->profile_image }}" class="rounded-circle" width="50" height="50">
                                 </li>

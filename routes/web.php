@@ -24,7 +24,6 @@ Route::group(['prefix' => 'admin', 'middleware' =>'auth'], function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'LaughsnsController@index');
-Route::get('index', 'MypageController@index')->middleware('auth');
 Route::get('create', 'LaughsnsController@add');
 Route::get('edit', 'LaughsnsController@edit');
 Route::get('laughsns/create', 'LaughsnsController@add');
@@ -37,7 +36,19 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
     Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
     Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
+    Route::resource('posts', 'PostController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 });
+
+// ログイン状態
+Route::group(['middleware' => 'auth'], function() {
+
+    // 省略
+
+    // コメント関連
+    Route::resource('comments', 'CommentsController', ['only' => ['store']]);
+});
+
+
 
 
 

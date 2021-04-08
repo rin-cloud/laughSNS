@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Models\User;
-use App\Models\Laughsns;
+use App\Models\Post;
 use App\Models\Follower;
 
 class UsersController extends Controller
@@ -85,13 +85,13 @@ class UsersController extends Controller
         }
     }
     
-    public function show(User $user, Tweet $tweet, Follower $follower)
+    public function show(User $user, Post $post, Follower $follower)
     {
         $login_user = auth()->user();
         $is_following = $login_user->isFollowing($user->id);
         $is_followed = $login_user->isFollowed($user->id);
-        $timelines = $laughsns->getUserTimeLine($user->id);
-        $laughsns_count = $laughsns->getLaughsnsCount($user->id);
+        $timelines = $post->getUserTimeLine($user->id);
+        $post_count = $post->getPostCount($user->id);
         $follow_count = $follower->getFollowCount($user->id);
         $follower_count = $follower->getFollowerCount($user->id);
 
@@ -100,13 +100,13 @@ class UsersController extends Controller
             'is_following'   => $is_following,
             'is_followed'    => $is_followed,
             'timelines'      => $timelines,
-            'laughsns_count'    => $laughsns_count,
+            'post_count'     => $post_count,
             'follow_count'   => $follow_count,
             'follower_count' => $follower_count
         ]);
     }
     
-        public function edit(User $user)
+    public function edit(User $user)
     {
         return view('users.edit', ['user' => $user]);
     }

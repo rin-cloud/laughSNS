@@ -43,7 +43,7 @@
                         <div class="d-flex justify-content-end">
                             <div class="p-2 d-flex flex-column align-items-center">
                                 <p class="font-weight-bold">ツイート数</p>
-                                <span>{{ $laughsns_count }}</span>
+                                <span>{{ $post_count }}</span>
                             </div>
                             <div class="p-2 d-flex flex-column align-items-center">
                                 <p class="font-weight-bold">フォロー数</p>
@@ -72,6 +72,23 @@
                                 <p class="mb-0 text-secondary">{{ $timeline->created_at->format('Y-m-d H:i') }}</p>
                             </div>
                         </div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                              <li class="nav-item active">
+                                <a class="nav-link" href="{{ action('LaughsnsController@index', ['id' => Auth::user()->id])}}">Home <span class="sr-only">(current)</span> </a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="{{ action('UsersController@show', ['id' => Auth::user()->id]) }}">マイページ</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="{{ action('UsersController@edit', ['id' => Auth::user()->id])}}">新規投稿</a>
+                              </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="cond_title">
+                              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
                         <div class="card-body">
                             {{ $timeline->text }}
                         </div>
@@ -82,11 +99,11 @@
                                         <i class="fas fa-ellipsis-v fa-fw"></i>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <form method="POST" action="{{ url('tweets/' .$timeline->id) }}" class="mb-0">
+                                        <form method="POST" action="{{ url('post/' .$timeline->id) }}" class="mb-0">
                                             @csrf
                                             @method('DELETE')
 
-                                            <a href="{{ url('tweets/' .$timeline->id .'/edit') }}" class="dropdown-item">編集</a>
+                                            <a href="{{ url('posts/' .$timeline->id .'/edit') }}" class="dropdown-item">編集</a>
                                             <button type="submit" class="dropdown-item del-btn">削除</button>
                                         </form>
                                     </div>
@@ -98,7 +115,6 @@
                             </div>
                             <div class="d-flex align-items-center">
                                 <a href="#"><i class="far fa-comment fa-fw"></i></a>
-                                <p class="mb-0 text-secondary">{{ count($timeline->favorites) }}</p>
                             </div>
                         </div>
                     </div>
