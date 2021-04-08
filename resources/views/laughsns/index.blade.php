@@ -15,6 +15,9 @@
               <li class="nav-item active">
                 <a class="nav-link" href="{{ action('LaughsnsController@index', ['id' => Auth::user()->id])}}">Home <span class="sr-only">(current)</span> </a>
               </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ action('PostController@index', ['id' => Auth::user()->id])}}">最新投稿 <span class="sr-only">(current)</span> </a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ action('UsersController@show', ['id' => Auth::user()->id]) }}">マイページ</a>
               </li>

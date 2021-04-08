@@ -2,6 +2,27 @@
 
 @section('content')
     <div class="container">
+        <hr color="#c0c0c0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">お笑いSNS</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ action('LaughsnsController@index', ['id' => Auth::user()->id])}}">Home <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ action('UsersController@show', ['id' => Auth::user()->id]) }}">マイページ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ action('PostController@create', ['id' => Auth::user()->id])}}">新規投稿</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>お笑いSNS</h2>

@@ -74,7 +74,7 @@ class PostController extends Controller
     public function show(Post $post, Comment $comment)
     {
         $user = auth()->user();
-        $post = $post->getTweet($post->id);
+        $post = $post->getPost($post->id);
         $comments = $comment->getComments($post->id);
 
         return view('posts.show', [
@@ -119,7 +119,7 @@ class PostController extends Controller
         ]);
 
         $validator->validate();
-        $tweet->postUpdate($post->id, $data);
+        $post->postUpdate($post->id, $data);
 
         return redirect('posts');
     }

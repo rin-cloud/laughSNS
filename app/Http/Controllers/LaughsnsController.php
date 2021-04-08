@@ -20,7 +20,7 @@ class LaughsnsController extends Controller
         $form = $request->all();
         
         if (isset($form['image'])) {
-            $path = $request->file('image')->store('public/profile_image');
+            $path = $request->file('image')->store('public/storage/profile_image');
             $posts->image_path = basename($path);
         } else {
           $posts->image_path = null;
